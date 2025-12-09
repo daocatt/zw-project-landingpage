@@ -1,10 +1,11 @@
 // STORAGE: content/projects
 // FORMAT: Aggregator for individual project files
 
-import { ai_processor } from './projects/ai-processor';
-import { eco_tracker } from './projects/eco-tracker';
-import { dashboard_pro } from './projects/dashboard-pro';
-import { finance_bot } from './projects/finance-bot';
+import { suda } from './projects/suda';
+import { antisoup } from './projects/antisoup';
+import { threeDBricks } from './projects/threed-bricks';
+import { miniapps } from './projects/miniapps';
+import { retrosnapAi } from './projects/retrosnap-ai';
 
 // To add a new project:
 // 1. Create a new .ts file in content/projects/ exporting the MD string
@@ -13,8 +14,9 @@ import { finance_bot } from './projects/finance-bot';
 // Sorting is handled automatically by the date field in constants.ts
 
 export const PROJECT_FILES = [
-  ai_processor,
-  eco_tracker,
-  dashboard_pro,
-  finance_bot
+  suda,
+  antisoup,
+  threeDBricks,
+  miniapps,
+  retrosnapAi
 ];

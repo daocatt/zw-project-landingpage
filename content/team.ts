@@ -1,9 +1,9 @@
 // STORAGE: content/team
 // FORMAT: Aggregator for individual team member files
 
-import { alex } from './team/alex';
-import { sarah } from './team/sarah';
-import { mike } from './team/mike';
+import { gemini } from './team/gemini.ts';
+import { daocatt } from './team/daocatt.ts';
+import { claudeCode } from './team/claude-code.ts';
 
 // To add a new member:
 // 1. Create a new .ts file in content/team/ exporting the MD string
@@ -11,7 +11,7 @@ import { mike } from './team/mike';
 // 3. Add it to the array below
 
 export const TEAM_FILES = [
-  alex,
-  sarah,
-  mike
+  gemini,
+  daocatt,
+  claudeCode
 ];

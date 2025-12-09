@@ -62,3 +62,25 @@ To add a new project, create a file in `content/projects/my-new-project.ts` foll
 
 ### Changing Images
 The application supports both external URLs (e.g., `https://...`) and local paths. If using local images, place them in the `public/` directory (create it if it doesn't exist) and reference them like `/my-image.jpg`.
+
+
+# Team Member Avatars
+
+Place team member avatar images in this folder.
+
+## Naming Convention
+- Use the member's ID as the filename (e.g., `gemini.jpg`, `daocatt.png`)
+- Supported formats: `.jpg`, `.jpeg`, `.png`, `.webp`
+
+## Recommended Specifications
+- Size: 200x200px to 400x400px (square)
+- Format: JPG or PNG
+- File size: Keep under 200KB for optimal loading
+
+## Usage
+Reference avatars in team member files like this:
+```
+avatar: /avatars/gemini.jpg
+```
+
+The `/avatars/` path is relative to the public directory.
