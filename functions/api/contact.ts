@@ -11,6 +11,7 @@ interface Env {
     EMAILJS_SERVICE_ID: string;
     EMAILJS_TEMPLATE_ID: string;
     EMAILJS_PUBLIC_KEY: string;
+    EMAILJS_PRIVATE_KEY: string;
 }
 
 export async function onRequestPost(context: { request: Request; env: Env }) {
@@ -56,7 +57,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
         }
 
         // Check environment variables
-        if (!env.EMAILJS_SERVICE_ID || !env.EMAILJS_TEMPLATE_ID || !env.EMAILJS_PUBLIC_KEY) {
+        if (!env.EMAILJS_SERVICE_ID || !env.EMAILJS_TEMPLATE_ID || !env.EMAILJS_PUBLIC_KEY || !env.EMAILJS_PRIVATE_KEY) {
             console.error('Missing EmailJS environment variables');
             return new Response(
                 JSON.stringify({ error: 'Server configuration error' }),
@@ -77,6 +78,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
                 service_id: env.EMAILJS_SERVICE_ID,
                 template_id: env.EMAILJS_TEMPLATE_ID,
                 user_id: env.EMAILJS_PUBLIC_KEY,
+                access_token: env.EMAILJS_PRIVATE_KEY,
                 template_params: {
                     title: `[PPProject] New Contact from ${formData.name}`,
                     name: formData.name,
