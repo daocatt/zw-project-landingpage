@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink, QrCode, Search, Calendar, Loader2 } from 'lucide-react';
 import { loadMarkdownProjects } from '../utils/markdown-loader';
 import { MarkdownProject } from '../types/markdown-project';
+import QRCodeGenerator from '../components/QRCodeGenerator';
 
 const MarkdownProjects: React.FC = () => {
     const [projects, setProjects] = useState<MarkdownProject[]>([]);
@@ -66,8 +67,8 @@ const MarkdownProjects: React.FC = () => {
                         <button
                             onClick={() => setSelectedTag(null)}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${selectedTag === null
-                                    ? 'bg-slate-900 text-white'
-                                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                                ? 'bg-slate-900 text-white'
+                                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
                                 }`}
                         >
                             All
@@ -77,8 +78,8 @@ const MarkdownProjects: React.FC = () => {
                                 key={tag}
                                 onClick={() => setSelectedTag(tag)}
                                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${selectedTag === tag
-                                        ? 'bg-indigo-600 text-white'
-                                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
                                     }`}
                             >
                                 {tag}
@@ -119,9 +120,9 @@ const MarkdownProjectCard: React.FC<{ project: MarkdownProject }> = ({ project }
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {project.qrCodeUrl && (
-                    <div className="absolute top-4 right-4 bg-white p-1.5 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <img src={project.qrCodeUrl} alt="QR Code" className="w-16 h-16" />
+                {project.projectUrl && (
+                    <div className="absolute top-4 right-4 bg-white p-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <QRCodeGenerator value={project.projectUrl} size={64} />
                     </div>
                 )}
             </div>
@@ -160,7 +161,7 @@ const MarkdownProjectCard: React.FC<{ project: MarkdownProject }> = ({ project }
                     </Link>
 
                     <div className="flex items-center gap-3">
-                        {project.qrCodeUrl && (
+                        {project.projectUrl && (
                             <button
                                 className="text-slate-400 hover:text-slate-700 transition-colors md:hidden"
                                 title="Show QR Code"

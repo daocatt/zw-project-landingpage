@@ -7,6 +7,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import MarkdownProjects from './pages/MarkdownProjects';
 import MarkdownProjectDetail from './pages/MarkdownProjectDetail';
 import Team from './pages/Team';
+import Contact from './pages/Contact';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route path="/markdown-projects" element={<MarkdownProjects />} />
           <Route path="/markdown-project/:id" element={<MarkdownProjectDetail />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

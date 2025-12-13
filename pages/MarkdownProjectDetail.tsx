@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, ExternalLink, Tag, Loader2 } from 'lucide-react';
 import { getMarkdownProject } from '../utils/markdown-loader';
 import { MarkdownProject } from '../types/markdown-project';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import QRCodeGenerator from '../components/QRCodeGenerator';
 
 const MarkdownProjectDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -109,10 +110,12 @@ const MarkdownProjectDetail: React.FC = () => {
                                     </a>
                                 )}
 
-                                {project.qrCodeUrl && (
+                                {project.projectUrl && (
                                     <div className="pt-4 border-t border-slate-200 text-center">
                                         <p className="text-xs text-slate-500 mb-2 uppercase tracking-wider font-semibold">Scan to view on mobile</p>
-                                        <img src={project.qrCodeUrl} alt="QR Code" className="w-32 h-32 mx-auto rounded-lg border border-slate-200" />
+                                        <div className="flex justify-center">
+                                            <QRCodeGenerator value={project.projectUrl} size={128} className="p-2 bg-white rounded-lg border border-slate-200" />
+                                        </div>
                                     </div>
                                 )}
 

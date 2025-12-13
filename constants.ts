@@ -5,10 +5,10 @@ import { PROJECT_FILES } from './content/projects';
 import { TEAM_FILES } from './content/team';
 
 export const SITE_CONFIG: SiteConfig = {
-  name: "zw-Project",
+  name: "PPProject",
   description: "Exploring the boundaries of code and creativity.",
-  githubUrl: "https://github.com/your-username/zw-project",
-  footerText: "© 2024 zw-Project. Built with React & Tailwind."
+  githubUrl: "https://github.com/your-username/ppproject",
+  footerText: "© 2024 PPProject. Built with React & Tailwind."
 };
 
 // --- DATA LOADING LOGIC ---
@@ -60,7 +60,7 @@ export const TEAM_MEMBERS: TeamMember[] = TEAM_FILES
   .map(fileContent => {
     const parsed = parseMarkdown<TeamMetadata>(fileContent);
     const meta = parsed.metadata;
-    
+
     return {
       id: meta.id,
       name: meta.name,

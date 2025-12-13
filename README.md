@@ -1,4 +1,4 @@
-# zw-Project
+# PPProject
 
 A generic, Markdown-based project portfolio and team showcase application built with React and TypeScript.
 

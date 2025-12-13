@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Code, Layers, Users } from 'lucide-react';
 import { SITE_CONFIG, PROJECTS } from '../constants';
+import CookieConsent from '../components/CookieConsent';
 
 const Home: React.FC = () => {
   const featuredProjects = PROJECTS.slice(0, 3);
@@ -18,19 +19,19 @@ const Home: React.FC = () => {
             </span>
             Welcome to {SITE_CONFIG.name}
           </div>
-          
+
           {/* Low-key Title: Smaller, lighter weight, neutral color */}
           <h1 className="text-3xl md:text-5xl font-medium text-slate-800 tracking-tight mb-6">
             Showcasing Innovation <br className="hidden md:block" />
             and Technical Excellence
           </h1>
-          
+
           {/* Low-key Subtitle: Smaller, lighter gray */}
           <p className="max-w-2xl mx-auto text-base md:text-lg text-slate-500 mb-10 leading-relaxed font-light">
-            {SITE_CONFIG.description} Dive into our portfolio of cutting-edge applications, 
+            {SITE_CONFIG.description} Dive into our portfolio of cutting-edge applications,
             tools, and experiments powered by modern web technologies.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* Low-key Buttons: Slate/Neutral instead of Indigo */}
             <Link
@@ -63,7 +64,7 @@ const Home: React.FC = () => {
                 From mobile apps to web dashboards, exploring various domains and technologies.
               </p>
             </div>
-            
+
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-600 mb-6">
                 <Code size={20} />
@@ -73,7 +74,7 @@ const Home: React.FC = () => {
                 Emphasizing maintainability, performance, and modern best practices in every line.
               </p>
             </div>
-            
+
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-600 mb-6">
                 <Users size={20} />
@@ -86,39 +87,41 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Mini Showcase */}
       <section className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-end mb-12">
-                <div>
-                    <h2 className="text-2xl font-semibold text-slate-900">Latest Updates</h2>
-                    <p className="text-slate-500 text-sm mt-1">Recent additions to our repository</p>
-                </div>
-                <Link to="/projects" className="hidden md:flex items-center text-slate-600 text-sm font-medium hover:text-slate-900 transition-colors">
-                    View all <ArrowRight size={16} className="ml-1" />
-                </Link>
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-2xl font-semibold text-slate-900">Latest Updates</h2>
+              <p className="text-slate-500 text-sm mt-1">Recent additions to our repository</p>
             </div>
+            <Link to="/projects" className="hidden md:flex items-center text-slate-600 text-sm font-medium hover:text-slate-900 transition-colors">
+              View all <ArrowRight size={16} className="ml-1" />
+            </Link>
+          </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-                {featuredProjects.map(project => (
-                     <Link to={project.hasDetail ? `/project/${project.id}` : '/projects'} key={project.id} className="group block">
-                        <div className="aspect-video bg-slate-100 rounded-lg overflow-hidden mb-4 border border-slate-100">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
-                        </div>
-                        <h3 className="text-base font-semibold text-slate-900 group-hover:text-slate-700 transition-colors">{project.title}</h3>
-                        <p className="text-slate-500 text-sm mt-1 line-clamp-2">{project.shortDescription}</p>
-                     </Link>
-                ))}
-            </div>
-            
-            <div className="mt-8 md:hidden">
-                 <Link to="/projects" className="flex items-center justify-center text-slate-600 font-medium hover:text-slate-900 transition-colors">
-                    View all projects <ArrowRight size={16} className="ml-1" />
-                </Link>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredProjects.map(project => (
+              <Link to={project.hasDetail ? `/project/${project.id}` : '/projects'} key={project.id} className="group block">
+                <div className="aspect-video bg-slate-100 rounded-lg overflow-hidden mb-4 border border-slate-100">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
+                </div>
+                <h3 className="text-base font-semibold text-slate-900 group-hover:text-slate-700 transition-colors">{project.title}</h3>
+                <p className="text-slate-500 text-sm mt-1 line-clamp-2">{project.shortDescription}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 md:hidden">
+            <Link to="/projects" className="flex items-center justify-center text-slate-600 font-medium hover:text-slate-900 transition-colors">
+              View all projects <ArrowRight size={16} className="ml-1" />
+            </Link>
+          </div>
         </div>
       </section>
+
+      <CookieConsent />
     </div>
   );
 };

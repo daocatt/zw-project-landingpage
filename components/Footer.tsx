@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Twitter, Linkedin, Share2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Share2, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '../constants';
 
 const Footer: React.FC = () => {
@@ -36,6 +37,13 @@ const Footer: React.FC = () => {
             >
               <Github size={20} />
             </a>
+            <Link
+              to="/contact"
+              className="hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-full"
+              aria-label="Contact"
+            >
+              <Mail size={20} />
+            </Link>
             <button
               onClick={handleShare}
               className="hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-full"
@@ -45,9 +53,14 @@ const Footer: React.FC = () => {
             </button>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-8 border-t border-slate-800 text-center text-xs">
           <p>{SITE_CONFIG.footerText}</p>
+          <div className="mt-2">
+            <Link to="/contact" className="hover:text-white transition-colors">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

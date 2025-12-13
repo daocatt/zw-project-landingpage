@@ -45,12 +45,13 @@ export async function loadMarkdownProjects(): Promise<MarkdownProject[]> {
     const projects: MarkdownProject[] = [];
 
     // Use Vite's glob import to load all markdown files
-    const markdownFiles = import.meta.glob('/projects/*.md', { as: 'raw', eager: true });
+    const markdownFiles = import.meta.glob('/projects/*.md', { query: '?raw', import: 'default' });
 
-    for (const [path, content] of Object.entries(markdownFiles)) {
+    for (const [path, loader] of Object.entries(markdownFiles)) {
         try {
+            const content = await loader() as string;
             const filename = path.split('/').pop()?.replace('.md', '') || '';
-            const { frontmatter, body } = parseFrontmatter(content as string);
+            const { frontmatter, body } = parseFrontmatter(content);
 
             projects.push({
                 id: filename,
