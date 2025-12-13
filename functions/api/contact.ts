@@ -78,7 +78,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
                 service_id: env.EMAILJS_SERVICE_ID,
                 template_id: env.EMAILJS_TEMPLATE_ID,
                 user_id: env.EMAILJS_PUBLIC_KEY,
-                access_token: env.EMAILJS_PRIVATE_KEY,
+                accessToken: env.EMAILJS_PRIVATE_KEY,
                 template_params: {
                     title: `[PPProject] New Contact from ${formData.name}`,
                     name: formData.name,
