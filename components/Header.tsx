@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { label: 'Home', path: '/' },
-    { label: 'Projects', path: '/projects' },
+    { label: 'Projects', path: '/markdown-projects' },
     { label: 'Team', path: '/team' },
   ];
 
@@ -38,11 +38,10 @@ const Header: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? 'text-indigo-600'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
+                  ? 'text-indigo-600'
+                  : 'text-slate-600 hover:text-slate-900'
+                  }`}
               >
                 {item.label}
               </Link>
@@ -67,11 +66,10 @@ const Header: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive(item.path)
-                    ? 'bg-indigo-50 text-indigo-700'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                }`}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(item.path)
+                  ? 'bg-indigo-50 text-indigo-700'
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
